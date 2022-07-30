@@ -1,0 +1,148 @@
+body {
+    box-sizing: border-box;
+    /* background-color: hsl(30, 38%, 92%); */
+    margin: 0;
+    padding: 0;
+    background-color: hsl(30, 38%, 92%);
+    height: 100vh;
+}
+
+.img-responsive {
+    display: none;
+}
+
+.img-responsive.mobile {
+    display: block
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    height: 90%;
+    width: 90%;
+    background-color: white;
+    border-radius: 8px;
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); */
+}
+
+img {
+    width: 100%;
+    height: 40%;
+    object-fit: scale-down;
+    border-radius: 8px 8px 0 0;
+}
+
+.content {
+    padding: 20px;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-type {
+    font: inherit;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: small;
+    opacity: 0.5;
+}
+
+.content h2 {
+    font-family: "Fraunces", sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.content .product-info {
+    font: inherit;
+    opacity: 0.5;
+    line-height: 175%;
+    font-size: 0.88rem;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.price-container .product-price {
+    color: hsl(158, 36%, 37%);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.price-container .product-discount {
+    opacity: 0.5;
+    text-decoration: line-through;
+    font-size: 0.8rem;
+}
+
+.btn {
+    text-align: center;
+}
+
+.btn button {
+    font: inherit;
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background-color: hsl(158, 36%, 37%);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn button:hover,
+.btn button:active {
+    background-color: hsl(158, 36%, 27%);
+}
+
+.btn button span {
+    margin-left: 0.8rem;
+}
+
+@media (min-width: 720px) {
+    .img-responsive {
+        display: block;
+    }
+
+    .img-responsive.mobile {
+        display: none
+    }
+
+    .card {
+        display: flex;
+        max-width: 40rem;
+        max-height: 30rem;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .img {
+        width: 20rem;
+        height: 100%;
+    }
+
+    .img img {
+        width: 20rem;
+        height: 100%;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .content {
+        width: 20rem
+    }
+}
