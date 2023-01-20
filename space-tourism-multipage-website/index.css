@@ -1,0 +1,108 @@
+/* ------------------------------------------------------- */
+/* CSS Reset                                               */
+/* ------------------------------------------------------- */
+
+/* For CSS reset inspiration */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+picture,
+figure {
+  margin: 0;
+}
+
+/* Body */
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Images, easier to work with */
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form elements, easier to work with */
+
+input,
+button,
+section,
+textarea {
+  font: inherit;
+}
+
+/* Animation - off if preferred by user */
+
+@media (prefers-reduced-motion) {
+  /* styles to apply if the user's settings are set to reduced motion */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: smooth !important;
+  }
+}
+
+/* ------------------------------------------------------- */
+/* Utility Classes                                         */
+/* ------------------------------------------------------- */
+:root {
+  --gap: 5rem;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 2em;
+  max-width: 80rem;
+}
+
+/* screen readers only class */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.box {
+  background: lightblue;
+  padding: 3rem;
+}

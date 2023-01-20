@@ -15,9 +15,5 @@
 .DS_Store
 .prettierignore
 
+# Folder where I kept the starter code
 /ignore-folder
-
-# Remove later
-*.jpg
-*.png
-*.webp
