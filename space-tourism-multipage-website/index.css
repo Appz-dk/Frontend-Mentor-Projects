@@ -1,4 +1,32 @@
 /* ------------------------------------------------------- */
+/* Custom Properties                                       */
+/* ------------------------------------------------------- */
+
+:root {
+  /* --gap: 5rem; */
+
+  /* Colors */
+  --clr-primary: 11 13 23;
+  --clr-light: 208 214 249;
+  --clr-white: 255 255 255;
+
+  /* Font-sizes (fs-400 = normal) (pixels / 16 to get rem value)*/
+  --fs-900: 9.375rem;
+  --fs-800: 6.25rem;
+  --fs-700: 3.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* Font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* ------------------------------------------------------- */
 /* CSS Reset                                               */
 /* ------------------------------------------------------- */
 
@@ -27,11 +55,27 @@ figure {
   margin: 0;
 }
 
+/* Font-weight */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+ font-weight: 400;
+}
+
 /* Body */
 
 body {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  color: rgb(var(--clr-white));
   line-height: 1.5;
   min-height: 100vh;
+  background-color: rgb(var(--clr-primary));
 }
 
 /* Images, easier to work with */
@@ -68,13 +112,22 @@ textarea {
 /* ------------------------------------------------------- */
 /* Utility Classes                                         */
 /* ------------------------------------------------------- */
-:root {
-  --gap: 5rem;
-}
+
+/* General */
 
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* '* + *' takes all but the first element */
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+  /* border: 1px solid red; */
 }
 
 .grid {
@@ -89,7 +142,6 @@ textarea {
 }
 
 /* screen readers only class */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -102,7 +154,53 @@ textarea {
   white-space: nowrap;
 }
 
-.box {
-  background: lightblue;
-  padding: 3rem;
+/* Colors */
+
+.bg-dark { background-color: rgb( var(--clr-primary) );}
+.bg-light { background-color: rgb( var(--clr-light) );}
+.bg-white { background-color: rgb( var(--clr-white) );}
+
+.text-dark { color: rgb( var(--clr-primary) );}
+.text-light { color: rgb( var(--clr-light) );}
+.text-white { color: rgb( var(--clr-white) );}
+
+/* Typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+  text-transform: uppercase;
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  letter-spacing: 4.72px;
+}
+
+.numbered-title > span {
+  color: rgb(var(--clr-white) / .25);
+  font-weight: 700;
+  margin-right: .5em;
 }
