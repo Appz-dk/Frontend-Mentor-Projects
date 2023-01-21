@@ -192,6 +192,8 @@ textarea {
     line-height: 1.1;
 }
 
+/* Numbered Titles */
+
 .numbered-title {
   text-transform: uppercase;
   font-family: var(--ff-sans-cond);
@@ -203,4 +205,139 @@ textarea {
   color: rgb(var(--clr-white) / .25);
   font-weight: 700;
   margin-right: .5em;
+}
+
+
+/* ------------------------------------------------------- */
+/* Components                                              */
+/* ------------------------------------------------------- */
+
+/* Large Button  ----------------------------------------- */
+
+.large-button {
+  position: relative;
+  display: grid;
+  /* Shorthand for align + justify in one*/
+  place-items: center;
+
+  border-radius: 100%;
+  text-decoration: none;
+
+  /* padding + aspect ratio "acts as height and width" */
+  padding: 0 2em;
+  aspect-ratio: 1;
+
+  /* Used to force new stacking context */
+  z-index: 1;
+}
+
+/*
+  Placing a element ::after the .large-button. 
+  The styles places the element infront of the .large-button's background
+  but behind the text content of the .large-button.
+  remove z-index: 1 on the .large-button to move it all the way behind
+*/
+.large-button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: rgb(var(--clr-white) / .15);
+
+  /* Matches the size and placement of the .large-button with the position relative */
+  width: 100%;
+  height: 100%;
+ 
+  /* For transition of opacity and scale on hover */
+  opacity: 0;
+  transition: opacity linear 250ms, transform ease-in-out 400ms;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Navigation & Underline-indicators  -------------------------- */
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+.underline-indicators > * {
+  padding: var(--underline-gap, 1rem) 0;
+  border: none;
+  border-bottom: .2rem solid rgb( var(--clr-white) / 0);
+  cursor: pointer;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-bottom: .2rem solid rgb( var(--clr-light) / .5);
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+  border-bottom: .2rem solid rgb( var(--clr-light));
+  /* color: rgb(var(--clr-white)); */
+}
+
+.tab-list {
+  --gap: 2.5rem;
+  --underline-gap: 2px;
+}
+
+.tab-list > [aria-selected="true"] {
+  color: rgb(var(--clr-white));
+}
+
+.dot-indicators > *{
+  background-color: rgb(var(--clr-white) / .1744);
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  aspect-ratio: 1;
+  padding: .5em;
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+  background-color: rgb(var(--clr-white) / .5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+  background-color: rgb(var(--clr-white));
+}
+
+.dot-button > * {
+  border-radius: 100%;
+  cursor: pointer;
+  aspect-ratio: 1;
+  padding: 0 1.25em;
+  border: 1px solid rgb(var(--clr-white) / .25);
+}
+
+.dot-button > *:hover,
+.dot-button > *:focus {
+  border: 1px solid rgb(var(--clr-white))
+}
+
+.dot-button > [aria-selected="true"] {
+  border: 1px solid rgb(var(--clr-white));
+  background-color: rgb(var(--clr-white));
+  color: rgb(var(--clr-primary));
 }
