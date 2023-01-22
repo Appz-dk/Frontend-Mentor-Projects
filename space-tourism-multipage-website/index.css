@@ -11,19 +11,42 @@
   --clr-white: 255 255 255;
 
   /* Font-sizes (fs-400 = normal) (pixels / 16 to get rem value)*/
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
-  --fs-300: 1rem;
+  /* Clamp scales the fontsize depending on the values given (Here we have min, middle and max)*/
+  /* 8vw + 1rem because viewpoint units wont react zooming in or out */
+  --fs-900: clamp(5rem, 9vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 2rem;
+  --fs-600: 1.75rem;
+  --fs-500: 1.5rem;
+  --fs-400: 1rem;
+  --fs-300: 0.9375rem;
   --fs-200: 0.875rem;
 
   /* Font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* Font-size changes for medium screens */
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+  }
+}
+
+/* Font-size changes for big screens */
+@media (min-width: 45em) {
+  :root {
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+  }
 }
 
 /* ------------------------------------------------------- */
@@ -76,6 +99,10 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   background-color: rgb(var(--clr-primary));
+
+  /* This devides the page in min-content for the 'header' and rest of the space for the 'main' */
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* Images, easier to work with */
@@ -115,6 +142,10 @@ textarea {
 
 /* General */
 
+.d-block {
+  display: block;
+}
+
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -139,6 +170,27 @@ textarea {
   margin-inline: auto;
   padding-inline: 2em;
   max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+}
+
+@media (min-width: 45em) {
+
+  .grid-container {
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+    column-gap: var(--container-gap, 2rem);
+  }
+  
+    /* Only works when wanting to use 2 grid colums in the middle as above*/
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
 }
 
 /* screen readers only class */
@@ -216,7 +268,8 @@ textarea {
 
 .large-button {
   position: relative;
-  display: grid;
+  /* Inline to prevent it from growing (aka displaying as block) */
+  display: inline-grid;
   /* Shorthand for align + justify in one*/
   place-items: center;
 
@@ -292,7 +345,7 @@ textarea {
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
-  border-bottom: .2rem solid rgb( var(--clr-light));
+  border-bottom: .2rem solid rgb( var(--clr-white));
   /* color: rgb(var(--clr-white)); */
 }
 
