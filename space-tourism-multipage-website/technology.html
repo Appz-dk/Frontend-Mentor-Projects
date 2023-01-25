@@ -16,12 +16,12 @@
 
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" defer></script>
-    <script src="crew.js" defer></script>
+    <script src="technology.js" defer></script>
 
-    <title>Crew</title>
+    <title>Technology</title>
   </head>
 
-  <body class="crew">
+  <body class="technology">
     <!-- For accessibility, people with SR's can skip to the main content -->
     <a href="#main" class="skip-to-content">Skip to content</a>
     <header class="primary-header flex">
@@ -48,12 +48,12 @@
               ><span aria-hidden="true">01</span>Destination</a
             >
           </li>
-          <li class="active">
+          <li>
             <a href="crew.html" tabindex="-1" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">02</span>Crew</a
             >
           </li>
-          <li>
+          <li class="active">
             <a href="technology.html" tabindex="-1" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">03</span>Technology</a
             >
@@ -62,36 +62,56 @@
       </nav>
     </header>
 
-    <main id="main" class="grid-container grid-container--crew flow">
+    <main id="main" class="grid-container grid-container--technology flow">
       <h1 class="numbered-title ff-sans-cond fs-600 uppercase letter-spacing-1">
-        <span aria-hidden="true">02</span>Meet your crew
+        <span aria-hidden="true">03</span>Space launch 101
       </h1>
 
       <!-- Placed here so screen-readers can read the different menu items before the article below -->
-      <div class="dot-indicators flex" role="tablist" aria-controls="tab-panel" aria-label="crew member list">
-        <button aria-selected="true" role="tab" tabindex="0"><span class="sr-only">The commander</span></button>
-        <button aria-selected="false" role="tab" tabindex="-1">
-          <span class="sr-only">The mission specialist</span>
+      <div class="dot-button flex" role="tablist" aria-controls="tab-panel" aria-label="technology list">
+        <button class="bg-transparent text-white fs-500 ff-serif" aria-selected="true" role="tab" tabindex="0">
+          <span class="sr-only">Launch vehicle</span>1
         </button>
-        <button aria-selected="false" role="tab" tabindex="-1"><span class="sr-only">The pilot</span></button>
-        <button aria-selected="false" role="tab" tabindex="-1"><span class="sr-only">The crew engineer</span></button>
+        <button class="bg-transparent text-white fs-500 ff-serif" aria-selected="false" role="tab" tabindex="-1">
+          <span class="sr-only">Spaceport</span>2
+        </button>
+        <button class="bg-transparent text-white fs-500 ff-serif" aria-selected="false" role="tab" tabindex="-1">
+          <span class="sr-only">Space capsule</span>3
+        </button>
       </div>
 
-      <article class="crew-info" id="tab-panel" role="tabpanel" tabindex="0">
+      <article class="technology-info flow flow--space-normal" id="tab-panel" role="tabpanel" tabindex="0">
         <header class="flow flow--space-small">
-          <h2 id="crew-subtitle" class="ff-serif fs-600 uppercase">Commander</h2>
-          <p id="crew-member" class="ff-serif fs-700 uppercase text-white">Douglas Hurley</p>
+          <p id="technology-member" class="p--max-width ff-sans-cond fs-200 letter-spacing-3 uppercase text-light">
+            The terminology...
+          </p>
+          <h2 id="technology-subtitle" class="ff-serif fs-600 uppercase text-white">Launch vehicle</h2>
         </header>
-        <p id="crew-content" class="ff-sans-normal fs-400 text-light">
-          Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He
-          launched into space for the third time as commander of Crew Dragon Demo-2.
+        <p id="technology-content" class="ff-sans-normal fs-400 text-light">
+          A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface
+          to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation.
+          Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!
         </p>
       </article>
 
-      <picutre class="crew-image--container">
-        <source srcset="./assets/crew/image-douglas-hurley.webp" type="image/webp" id="crew-source" />
-        <img src="./assets/crew/image-douglas-hurley.png" alt="Douglas Hurley" id="crew-image" class="crew-image" />
-      </picutre>
+      <img
+        class="technology-image--container technology-image-mobile--container"
+        src="./assets/technology/image-launch-vehicle-landscape.jpg"
+        alt="launch vehicle"
+        id="technology-image"
+        class="technology-image"
+      />
+      <!-- <picutre id="technology-img-mobile" class="technology-image--container technology-image-mobile--container">
+        
+      </picutre> -->
+      <!-- <picture id="technology-img-desktop" class="technology-image--container technology--image-desktop">
+        <img
+          src="./assets/technology/image-launch-vehicle-portrait.jpg"
+          alt="launch vehicle"
+          id="technology-image"
+          class="technology-image"
+        />
+      </picture> -->
     </main>
   </body>
 </html>
