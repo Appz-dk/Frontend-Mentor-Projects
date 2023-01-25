@@ -16,44 +16,26 @@ mobileNavBtn.addEventListener("click", () => {
   }
 });
 
-// Keyboard navigation
+// Keyboard navigation setup
+const primaryNav = document.querySelector("#primary-navigation");
+const primaryNavLinks = document.querySelectorAll("#primary-navigation li a");
+let navFocus = 0;
+addKeyboardNavigation(primaryNav, navFocus, primaryNavLinks);
+
 const tabList = document.querySelector("[role='tablist']");
 const tabs = document.querySelectorAll("[role='tab']");
 
 if (tabList) {
   let tabFocus = 0;
   addKeyboardNavigation(tabList, tabFocus, tabs);
-
-  // tabList.addEventListener("keydown", (e) => {
-  //   const arrowKeyRight = 39;
-  //   const arrowKeyLeft = 37;
-
-  //   if (e.keyCode === arrowKeyRight) {
-  //     tabs[tabFocus].setAttribute("tabindex", "-1");
-
-  //     if (tabFocus === tabs.length - 1) {
-  //       tabFocus = 0;
-  //     } else {
-  //       tabFocus++;
-  //     }
-  //   }
-
-  //   if (e.keyCode === arrowKeyLeft) {
-  //     tabs[tabFocus].setAttribute("tabindex", "-1");
-
-  //     if (tabFocus === 0) {
-  //       tabFocus = tabs.length - 1;
-  //     } else {
-  //       tabFocus--;
-  //     }
-  //   }
-
-  //   tabs[tabFocus].setAttribute("tabindex", "0");
-  //   tabs[tabFocus].focus();
-  // });
 }
 
-const primaryNavList = document.querySelector("#primary-navigation");
+/**
+ * Fuction to set up keyboard navigation
+ * @param {Element} element The HTML element you want to add keyboard nav too
+ * @param {Number} currentTab An integer to keep track of which nav link is in focus (usally starts at 0)
+ * @param {NodeListOf<Element>} tabs The NodeList of navigation elements to navigate between
+ */
 
 function addKeyboardNavigation(element, currentTab, tabs) {
   element.addEventListener("keydown", (e) => {

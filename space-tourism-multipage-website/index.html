@@ -30,24 +30,29 @@
         <span class="sr-only">Menu</span>
       </button>
       <nav>
-        <ul id="primary-navigation" data-hidden="true" class="primary-navigation underline-indicators flex">
+        <ul
+          id="primary-navigation"
+          data-hidden="true"
+          role="navigation"
+          class="primary-navigation underline-indicators flex"
+        >
           <li class="active">
-            <a href="index.html" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
+            <a href="index.html" tabindex="0" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">00</span>Home</a
             >
           </li>
           <li>
-            <a href="destination-moon.html" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
+            <a href="destination.html" tabindex="-1" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">01</span>Destination</a
             >
           </li>
           <li>
-            <a href="crew-commander.html" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
+            <a href="crew.html" tabindex="-1" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">02</span>Crew</a
             >
           </li>
           <li>
-            <a href="technology.html" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
+            <a href="technology.html" tabindex="-1" class="text-white fs-300 ff-sans-cond uppercase letter-spacing-2"
               ><span aria-hidden="true">02</span>Technology</a
             >
           </li>
@@ -68,20 +73,8 @@
       </div>
 
       <div>
-        <a href="#" class="large-button bg-white ff-serif uppercase text-dark">Explore</a>
+        <a href="destination.html" class="large-button bg-white ff-serif uppercase text-dark">Explore</a>
       </div>
     </main>
   </body>
-
-  <!-- <script>
-    let jsonData;
-    const data = fetch("data.json")
-      .then((res) => res.json())
-      .then(function ({ destinations }) {
-        const [moon, mars, europa, titan] = destinations;
-  
-        console.log(moon);
-        console.log(mars);
-      });
-  </script> -->
 </html>

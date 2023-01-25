@@ -1,7 +1,7 @@
 const crewSource = document.getElementById("crew-source");
 const crewImage = document.getElementById("crew-image");
 const crewSubtitle = document.getElementById("crew-subtitle");
-const crewCommander = document.getElementById("crew-commander");
+const crewMember = document.getElementById("crew-member");
 const crewContent = document.getElementById("crew-content");
 
 // Dots
@@ -20,7 +20,7 @@ const adjustPageContent = (data) => {
   crewSource.setAttribute("srcset", data.images.webp);
   crewImage.setAttribute("src", data.images.png);
   crewSubtitle.innerText = data.role;
-  crewCommander.innerText = data.name;
+  crewMember.innerText = data.name;
   crewContent.innerText = data.bio;
 };
 

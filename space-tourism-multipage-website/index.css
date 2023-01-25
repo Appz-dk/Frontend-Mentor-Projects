@@ -386,7 +386,7 @@ textarea {
   padding: var(--underline-gap, 1rem) 0;
   border: none;
   border-bottom: .2rem solid rgb( var(--clr-white) / 0);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .underline-indicators > *:hover,
@@ -822,12 +822,14 @@ body {
     margin-top: 0;
     border: none;
     max-width: 100%;
-    text-align: right;
+    text-align: center;
   }
   .crew-image--container > img {
     margin-inline: 0;
     margin-bottom: -5px;
     display: inline-block;
-    max-width: 85%
+    max-width: 85%;
   }
 }
+
+/* Grid-colum: span 2 for last page's image */
