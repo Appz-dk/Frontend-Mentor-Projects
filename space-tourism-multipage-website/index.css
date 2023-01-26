@@ -387,7 +387,6 @@ textarea {
   padding: var(--underline-gap, 1rem) 0;
   border: none;
   border-bottom: .2rem solid rgb( var(--clr-white) / 0);
-  /* cursor: pointer; */
 }
 
 .underline-indicators > *:hover,
@@ -404,6 +403,10 @@ textarea {
 .tab-list {
   --gap: 2.5rem;
   --underline-gap: 2px;
+}
+
+.tab-list > * {
+  cursor: pointer;
 }
 
 .tab-list > [aria-selected="true"] {

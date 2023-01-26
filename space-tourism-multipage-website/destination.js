@@ -4,18 +4,15 @@ const destinationSubtitle = document.getElementById("destination-subtitle");
 const destinationContent = document.getElementById("destination-content");
 const destinationMeta = document.getElementById("destination-meta");
 
-const btns = document.querySelectorAll("[role='tab']");
-const [moonBtn, marsBtn, europaBtn, titanBtn] = btns;
+const destinationBtns = document.querySelectorAll("[role='tab']");
+const [moonBtn, marsBtn, europaBtn, titanBtn] = destinationBtns;
 
 // Helper functions
-const adjustSelectedBtn = (currentBtn) => {
-  tabs.forEach((btn) => {
-    btn.setAttribute("aria-selected", "false");
-  });
-  currentBtn.setAttribute("aria-selected", "true");
-};
+// This is the first page I worked. On the other pages I've tried to refactor
+// the setup of eventlisteners to less lines of code, but I wanted to keep this
+// as a reminder.
 
-const adjustPageContent = (data) => {
+const adjustDestinationPageContent = (data) => {
   destinationSource.setAttribute("srcset", data.images.webp);
   destinationImage.setAttribute("src", data.images.png);
   destinationImage.setAttribute("alt", data.name);
@@ -35,23 +32,23 @@ const adjustPageContent = (data) => {
 
 // Page content updater functions
 const moonEvent = (moon) => {
-  adjustPageContent(moon);
-  adjustSelectedBtn(moonBtn);
+  adjustDestinationPageContent(moon);
+  adjustSelectedBtn(destinationBtns, moonBtn);
 };
 
 const marsEvent = (mars) => {
-  adjustPageContent(mars);
-  adjustSelectedBtn(marsBtn);
+  adjustDestinationPageContent(mars);
+  adjustSelectedBtn(destinationBtns, marsBtn);
 };
 
 const europaEvent = (europa) => {
-  adjustPageContent(europa);
-  adjustSelectedBtn(europaBtn);
+  adjustDestinationPageContent(europa);
+  adjustSelectedBtn(destinationBtns, europaBtn);
 };
 
 const titanEvent = (titan) => {
-  adjustPageContent(titan);
-  adjustSelectedBtn(titanBtn);
+  adjustDestinationPageContent(titan);
+  adjustSelectedBtn(destinationBtns, titanBtn);
 };
 
 // Adding eventlisterners & fetching json data

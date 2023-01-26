@@ -1,48 +1,40 @@
-const crewSource = document.getElementById("crew-source");
-const crewImage = document.getElementById("crew-image");
-const crewSubtitle = document.getElementById("crew-subtitle");
-const crewMember = document.getElementById("crew-member");
-const crewContent = document.getElementById("crew-content");
+const crewSourceEl = document.getElementById("crew-source");
+const crewImageEl = document.getElementById("crew-image");
+const crewSubtitleEl = document.getElementById("crew-subtitle");
+const crewMemberEl = document.getElementById("crew-member");
+const crewContentEl = document.getElementById("crew-content");
 
-// Dots
-const dots = document.querySelectorAll(".dot-indicators button");
-const [commanderBtn, specialistBtn, pilotBtn, engineerBtn] = dots;
+// crewDots
+const crewDots = document.querySelectorAll(".dot-indicators button");
+const [commanderDot, specialistDot, pilotDot, engineerDot] = crewDots;
 
-// Helper functions
-const adjustSelectedBtn = (currentDot) => {
-  dots.forEach((btn) => {
-    btn.setAttribute("aria-selected", "false");
-  });
-  currentDot.setAttribute("aria-selected", "true");
-};
-
-const adjustPageContent = (data) => {
-  crewSource.setAttribute("srcset", data.images.webp);
-  crewImage.setAttribute("src", data.images.png);
-  crewSubtitle.innerText = data.role;
-  crewMember.innerText = data.name;
-  crewContent.innerText = data.bio;
+const adjustCrewPageContent = (data) => {
+  crewSourceEl.setAttribute("srcset", data.images.webp);
+  crewImageEl.setAttribute("src", data.images.png);
+  crewSubtitleEl.innerText = data.role;
+  crewMemberEl.innerText = data.name;
+  crewContentEl.innerText = data.bio;
 };
 
 // Page eventhandler functions
 const commanderEvent = (commanderData) => {
-  adjustPageContent(commanderData);
-  adjustSelectedBtn(commanderBtn);
+  adjustCrewPageContent(commanderData);
+  adjustSelectedBtn(crewDots, commanderDot);
 };
 
 const specialistEvent = (specialistData) => {
-  adjustPageContent(specialistData);
-  adjustSelectedBtn(specialistBtn);
+  adjustCrewPageContent(specialistData);
+  adjustSelectedBtn(crewDots, specialistDot);
 };
 
 const pilotEvent = (pilotData) => {
-  adjustPageContent(pilotData);
-  adjustSelectedBtn(pilotBtn);
+  adjustCrewPageContent(pilotData);
+  adjustSelectedBtn(crewDots, pilotDot);
 };
 
 const engineerEvent = (engineerData) => {
-  adjustPageContent(engineerData);
-  adjustSelectedBtn(engineerBtn);
+  adjustCrewPageContent(engineerData);
+  adjustSelectedBtn(crewDots, engineerDot);
 };
 
 // Fetching data and setting up event listeners
@@ -50,16 +42,16 @@ fetch("data.json")
   .then((res) => res.json())
   .then(function ({ crew }) {
     const [commander, specialist, pilot, engineer] = crew;
-    commanderBtn.addEventListener("click", () => {
+    commanderDot.addEventListener("click", () => {
       commanderEvent(commander);
     });
-    specialistBtn.addEventListener("click", () => {
+    specialistDot.addEventListener("click", () => {
       specialistEvent(specialist);
     });
-    pilotBtn.addEventListener("click", () => {
+    pilotDot.addEventListener("click", () => {
       pilotEvent(pilot);
     });
-    engineerBtn.addEventListener("click", () => {
+    engineerDot.addEventListener("click", () => {
       engineerEvent(engineer);
     });
   });
